@@ -35,13 +35,13 @@ const CONTENT = {
   roles: {
     es: [
       "Founder · monarch",
-      "Software Engineer",
-      "Product builder",
+      "Software & design",
+      "Diseño industrial · UNCuyo",
     ],
     en: [
       "Founder · monarch",
-      "Software Engineer",
-      "Product builder",
+      "Software & design",
+      "Industrial design · UNCuyo",
     ],
   },
   experience: {
@@ -51,7 +51,28 @@ const CONTENT = {
         role: "Founder & engineer",
         company: "monarch",
         period: "presente",
-        desc: "Mi estudio personal de desarrollo de software: producto web, interfaces y herramientas local-first. Diseño, implementación y deploy end-to-end — clientes y proyectos propios.",
+        desc: "Estudio personal de software: producto web, interfaces y herramientas local-first. Diseño + implementación + deploy end-to-end para clientes y proyectos propios.",
+      },
+      {
+        hash: "g10m1n",
+        role: "Stage · diseño y new media",
+        company: "Giò Minola",
+        period: "2008",
+        desc: "Pasantía en agencia de comunicación y packaging (Torino). Propuestas web y piezas de comunicación — AIGEST, Il Poggio di Teo y otros encargos.",
+      },
+      {
+        hash: "fr33ln",
+        role: "Diseño gráfico freelance",
+        company: "independiente",
+        period: "2001 — 2008",
+        desc: "Identidad visual, logotipos, piezas gráficas y CD multimedia. Clientes y proyectos propios en Mendoza y colaboraciones en Italia.",
+      },
+      {
+        hash: "p0nc3",
+        role: "Producción gráfica",
+        company: "Impresos Ponce",
+        period: "1999 — 2001",
+        desc: "Trabajo part-time en imprenta: producción y oficios de la cadena gráfica.",
       },
     ],
     en: [
@@ -60,14 +81,55 @@ const CONTENT = {
         role: "Founder & engineer",
         company: "monarch",
         period: "present",
-        desc: "My personal software studio: web products, interfaces, and local-first tools. Design, implementation, and deploy end-to-end — clients and own projects.",
+        desc: "Personal software studio: web products, interfaces, and local-first tools. Design + build + deploy end-to-end for clients and own projects.",
+      },
+      {
+        hash: "g10m1n",
+        role: "Internship · design & new media",
+        company: "Giò Minola",
+        period: "2008",
+        desc: "Internship at a communication and packaging agency (Turin). Web proposals and brand pieces — AIGEST, Il Poggio di Teo, and other briefs.",
+      },
+      {
+        hash: "fr33ln",
+        role: "Freelance graphic design",
+        company: "independent",
+        period: "2001 — 2008",
+        desc: "Visual identity, logos, print, and multimedia CDs. Clients and own projects in Mendoza, plus collaborations in Italy.",
+      },
+      {
+        hash: "p0nc3",
+        role: "Print production",
+        company: "Impresos Ponce",
+        period: "1999 — 2001",
+        desc: "Part-time print shop work: production and the craft of the print pipeline.",
+      },
+    ],
+  },
+  education: {
+    es: [
+      {
+        hash: "uncuyo",
+        role: "Diseño Industrial · orientación gráfica",
+        company: "Universidad Nacional de Cuyo",
+        period: "2008",
+        desc: "Facultad de Artes y Diseño. Formación en diseño de producto e identidad gráfica.",
+      },
+    ],
+    en: [
+      {
+        hash: "uncuyo",
+        role: "Industrial Design · graphic track",
+        company: "Universidad Nacional de Cuyo",
+        period: "2008",
+        desc: "School of Arts and Design. Product design and visual identity training.",
       },
     ],
   },
   skills: {
     es: [
       {
-        title: "languages",
+        title: "code",
         items: ["TypeScript", "JavaScript", "HTML/CSS", "Shell"],
       },
       {
@@ -75,13 +137,21 @@ const CONTENT = {
         items: ["React", "Vite", "Browser extensions", "Static sites"],
       },
       {
+        title: "design",
+        items: ["Illustrator", "Photoshop", "InDesign", "UI / product"],
+      },
+      {
+        title: "idiomas",
+        items: ["Español nativo", "Inglés alto", "Italiano medio"],
+      },
+      {
         title: "craft",
-        items: ["UI engineering", "Local-first", "Privacy-minded", "Product design"],
+        items: ["Local-first", "Privacy-minded", "Identidad visual", "Web production"],
       },
     ],
     en: [
       {
-        title: "languages",
+        title: "code",
         items: ["TypeScript", "JavaScript", "HTML/CSS", "Shell"],
       },
       {
@@ -89,8 +159,16 @@ const CONTENT = {
         items: ["React", "Vite", "Browser extensions", "Static sites"],
       },
       {
+        title: "design",
+        items: ["Illustrator", "Photoshop", "InDesign", "UI / product"],
+      },
+      {
+        title: "languages",
+        items: ["Spanish native", "English high", "Italian intermediate"],
+      },
+      {
         title: "craft",
-        items: ["UI engineering", "Local-first", "Privacy-minded", "Product design"],
+        items: ["Local-first", "Privacy-minded", "Visual identity", "Web production"],
       },
     ],
   },
@@ -181,21 +259,24 @@ const I18N = {
     "nav.contact": "contact",
     "hero.eyebrow": "curriculum vitae · v1.0.0",
     "hero.lead":
-      "Construyo software con foco en producto: interfaces claras, herramientas locales y detalle de ejecución. Menos superficie pública, más craft.",
+      "Diseño industrial + software. Desde monarch construyo producto web, interfaces y herramientas local-first — con el oficio de quien viene del diseño gráfico y la producción real.",
     "hero.cta": "iniciar conversación",
     "hero.ctaSecondary": "ver trabajo",
     "about.label": "about",
     "about.title": "quién soy",
     "about.p1":
-      "Soy Mauricio. Desde monarch — mi estudio personal de desarrollo — diseño y construyo producto web, interfaces y herramientas local-first. Claridad, control del usuario y código que se sostiene solo.",
+      "Soy Mauricio. Diseñador industrial (UNCuyo, 2008) y builder de software. Desde monarch — mi estudio personal — diseño y desarrollo producto web, interfaces y herramientas local-first.",
     "about.p2":
-      "Prefiero menos features, bien hechas. El minimalismo no es pose: es disciplina. Trabajo en la intersección entre UI cuidadosa y software que no necesita cloud para ser útil.",
+      "Empecé en imprenta y freelance gráfico (Mendoza), pasé por new media en Torino (Giò Minola) y hoy cierro el loop: craft visual + código. Menos features, bien hechas. Claridad y control del usuario.",
     "experience.label": "experience",
     "experience.title": "trayectoria",
+    "education.label": "education",
+    "education.title": "formación",
     "skills.label": "skills",
     "skills.title": "stack & craft",
     "projects.label": "projects",
     "projects.title": "selección de trabajo",
+    "nav.education": "education",
     "contact.label": "contact",
     "contact.title": "hablemos",
     "contact.lead":
@@ -224,21 +305,24 @@ const I18N = {
     "nav.contact": "contact",
     "hero.eyebrow": "curriculum vitae · v1.0.0",
     "hero.lead":
-      "I build product-minded software: clear interfaces, local-first tools, and careful execution. Less public surface, more craft.",
+      "Industrial design + software. Through monarch I build web products, interfaces, and local-first tools — with the craft of someone who comes from graphic design and real production.",
     "hero.cta": "start a conversation",
     "hero.ctaSecondary": "see work",
     "about.label": "about",
     "about.title": "who I am",
     "about.p1":
-      "I'm Mauricio. Through monarch — my personal software studio — I design and ship web products, interfaces, and local-first tools. Clarity, user control, and code that holds up.",
+      "I'm Mauricio. Industrial designer (UNCuyo, 2008) and software builder. Through monarch — my personal studio — I design and ship web products, interfaces, and local-first tools.",
     "about.p2":
-      "Fewer features, better executed. Minimalism is discipline, not a pose. I work where careful UI meets software that does not need a cloud to be useful.",
+      "I started in print shops and freelance design (Mendoza), worked new media in Turin (Giò Minola), and now close the loop: visual craft + code. Fewer features, better executed. Clarity and user control.",
     "experience.label": "experience",
     "experience.title": "trajectory",
+    "education.label": "education",
+    "education.title": "education",
     "skills.label": "skills",
     "skills.title": "stack & craft",
     "projects.label": "projects",
     "projects.title": "selected work",
+    "nav.education": "education",
     "contact.label": "contact",
     "contact.title": "let's talk",
     "contact.lead":
@@ -356,6 +440,7 @@ function applyI18n() {
   }
 
   renderExperience();
+  renderEducation();
   renderSkills();
   renderProjects();
   restartTypewriter();
@@ -416,16 +501,14 @@ function tickTypewriter() {
 
 /* ── Render dynamic blocks ────────────────── */
 
-function renderExperience() {
-  const root = document.getElementById("timeline");
+function renderTimeline(rootId, items) {
+  const root = document.getElementById(rootId);
   if (!root) return;
-  const items = CONTENT.experience[lang];
-
-  root.innerHTML = items
+  root.innerHTML = (items || [])
     .map(
       (item) => `
     <li class="timeline__item">
-      <span class="timeline__hash">#${item.hash}</span>
+      <span class="timeline__hash">#${escapeHtml(item.hash)}</span>
       <h3 class="timeline__role">
         ${escapeHtml(item.role)}
         <span class="timeline__company">@ ${escapeHtml(item.company)}</span>
@@ -435,6 +518,14 @@ function renderExperience() {
     </li>`
     )
     .join("");
+}
+
+function renderExperience() {
+  renderTimeline("timeline", CONTENT.experience[lang]);
+}
+
+function renderEducation() {
+  renderTimeline("education-timeline", CONTENT.education[lang]);
 }
 
 function renderSkills() {

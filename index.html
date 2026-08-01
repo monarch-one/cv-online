@@ -30,6 +30,7 @@
     <nav class="topbar__nav" aria-label="Primary">
       <a href="#about" data-i18n="nav.about">about</a>
       <a href="#experience" data-i18n="nav.experience">experience</a>
+      <a href="#education" data-i18n="nav.education">education</a>
       <a href="#skills" data-i18n="nav.skills">skills</a>
       <a href="#projects" data-i18n="nav.projects">projects</a>
       <a href="#contact" data-i18n="nav.contact">contact</a>
@@ -58,8 +59,8 @@
         <span class="cursor cursor--inline" aria-hidden="true"></span>
       </p>
       <p class="hero__lead" data-i18n="hero.lead">
-        Construyo software con foco en producto: interfaces claras, herramientas locales
-        y detalle de ejecución. Menos superficie pública, más craft.
+        Diseño industrial + software. Desde monarch: producto web, interfaces y
+        herramientas local-first — con oficio de diseño gráfico y producción real.
       </p>
       <div class="hero__cta">
         <a class="btn btn--primary" href="#contact" data-i18n="hero.cta">iniciar conversación</a>
@@ -83,11 +84,12 @@
       <div class="about">
         <div class="about__text">
           <p data-i18n="about.p1">
-            Soy Mauricio. Desde monarch — mi estudio personal de desarrollo — diseño y
-            construyo producto web, interfaces y herramientas local-first.
+            Soy Mauricio. Diseñador industrial (UNCuyo, 2008) y builder de software.
+            Desde monarch diseño y desarrollo producto web, interfaces y herramientas local-first.
           </p>
           <p data-i18n="about.p2">
-            Prefiero menos features, bien hechas. El minimalismo no es pose: es disciplina.
+            Empecé en imprenta y freelance gráfico; pasé por new media en Torino y hoy
+            cierro el loop: craft visual + código.
           </p>
         </div>
         <aside class="code-card mono" aria-label="Profile snippet">
@@ -101,8 +103,9 @@
   <span class="tok-key">name</span>: <span class="tok-str">"Mauricio Appiolaza"</span>,
   <span class="tok-key">studio</span>: <span class="tok-str">"monarch"</span>,
   <span class="tok-key">loc</span>: <span class="tok-str">"Mendoza, AR"</span>,
-  <span class="tok-key">focus</span>: [<span class="tok-str">"product"</span>, <span class="tok-str">"local-first"</span>],
-  <span class="tok-key">values</span>: [<span class="tok-str">"clarity"</span>, <span class="tok-str">"privacy"</span>],
+  <span class="tok-key">degree</span>: <span class="tok-str">"Diseño Industrial · UNCuyo"</span>,
+  <span class="tok-key">langs</span>: [<span class="tok-str">"es"</span>, <span class="tok-str">"en"</span>, <span class="tok-str">"it"</span>],
+  <span class="tok-key">focus</span>: [<span class="tok-str">"product"</span>, <span class="tok-str">"design"</span>, <span class="tok-str">"local-first"</span>],
   <span class="tok-key">openTo</span>: <span class="tok-bool">true</span>,
 } <span class="tok-kw">as</span> <span class="tok-type">const</span>;</pre>
         </aside>
@@ -116,6 +119,15 @@
         <h2 class="section__title" data-i18n="experience.title">trayectoria</h2>
       </header>
       <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education" data-reveal>
+      <header class="section__head">
+        <p class="section__label mono"><span class="dim">/*</span> <span data-i18n="education.label">education</span> <span class="dim">*/</span></p>
+        <h2 class="section__title" data-i18n="education.title">formación</h2>
+      </header>
+      <ol class="timeline" id="education-timeline"></ol>
     </section>
 
     <!-- Skills -->
