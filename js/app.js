@@ -5,8 +5,7 @@
 
 const CONTENT = {
   name: "Mauricio Appiolaza",
-  // vacío a propósito (privacidad): se oculta el botón de email hasta que pongas uno
-  email: "",
+  email: "mauricio_appiolaza@micorreo.uk",
   githubUrl: "https://github.com/monarch-one",
   location: {
     es: "Luján de Cuyo, Mendoza",
