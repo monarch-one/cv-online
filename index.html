@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Curriculum vitae — software engineer" />
+  <meta name="description" content="Curriculum vitae — Mauricio Appiolaza. Software, product, local-first tools." />
   <meta name="theme-color" content="#0a0a0b" />
-  <title>CV · Your Name</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <title>CV · Mauricio Appiolaza</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -49,7 +50,7 @@
         <span class="dim">//</span> <span data-i18n="hero.eyebrow">curriculum vitae · v1.0.0</span>
       </p>
       <h1 class="hero__name">
-        <span class="hero__name-text">Your Name</span><span class="cursor" aria-hidden="true"></span>
+        <span class="hero__name-text">Mauricio Appiolaza</span><span class="cursor" aria-hidden="true"></span>
       </h1>
       <p class="hero__role mono">
         <span class="accent">&gt;</span>
@@ -57,19 +58,19 @@
         <span class="cursor cursor--inline" aria-hidden="true"></span>
       </p>
       <p class="hero__lead" data-i18n="hero.lead">
-        Diseño y construyo productos digitales con precisión de ingeniería.
-        Interfaces claras, sistemas fiables, detalle obsesivo.
+        Construyo software con foco en producto: interfaces claras, herramientas locales
+        y detalle de ejecución. Menos superficie pública, más craft.
       </p>
       <div class="hero__cta">
         <a class="btn btn--primary" href="#contact" data-i18n="hero.cta">iniciar conversación</a>
         <a class="btn btn--ghost" href="#projects" data-i18n="hero.ctaSecondary">ver trabajo</a>
       </div>
       <div class="hero__meta mono">
-        <span><span class="dim">loc:</span> Madrid, ES</span>
+        <span><span class="dim">loc:</span> <span id="meta-loc">Luján de Cuyo, Mendoza</span></span>
         <span class="meta-sep" aria-hidden="true">·</span>
-        <span><span class="dim">tz:</span> UTC+1</span>
+        <span><span class="dim">tz:</span> <span id="meta-tz">UTC−3</span></span>
         <span class="meta-sep" aria-hidden="true">·</span>
-        <span><span class="dim">stack:</span> TypeScript · Systems</span>
+        <span><span class="dim">stack:</span> <span id="meta-stack">TypeScript · Product</span></span>
       </div>
     </section>
 
@@ -82,14 +83,11 @@
       <div class="about">
         <div class="about__text">
           <p data-i18n="about.p1">
-            Ingeniero de software con foco en producto. Combino pensamiento de sistemas
-            con criterio de diseño: cada interfaz, cada API, cada decisión de arquitectura
-            debe sentirse inevitable.
+            Soy Mauricio. Diseño y desarrollo productos digitales desde Mendoza: sitios
+            en producción, extensiones de navegador y herramientas local-first.
           </p>
           <p data-i18n="about.p2">
-            Trabajo en la intersección entre código limpio y experiencia de usuario.
-            Prefiero menos features, mejor ejecutadas. El minimalismo no es estética:
-            es disciplina.
+            Prefiero menos features, bien hechas. El minimalismo no es pose: es disciplina.
           </p>
         </div>
         <aside class="code-card mono" aria-label="Profile snippet">
@@ -100,9 +98,10 @@
             <span class="code-card__file">profile.ts</span>
           </div>
 <pre class="code-card__body"><span class="tok-kw">const</span> <span class="tok-id">profile</span> <span class="tok-op">=</span> {
-  <span class="tok-key">role</span>: <span class="tok-str">"Software Engineer"</span>,
-  <span class="tok-key">focus</span>: [<span class="tok-str">"product"</span>, <span class="tok-str">"systems"</span>],
-  <span class="tok-key">values</span>: [<span class="tok-str">"clarity"</span>, <span class="tok-str">"craft"</span>],
+  <span class="tok-key">name</span>: <span class="tok-str">"Mauricio Appiolaza"</span>,
+  <span class="tok-key">loc</span>: <span class="tok-str">"Mendoza, AR"</span>,
+  <span class="tok-key">focus</span>: [<span class="tok-str">"product"</span>, <span class="tok-str">"local-first"</span>],
+  <span class="tok-key">values</span>: [<span class="tok-str">"clarity"</span>, <span class="tok-str">"privacy"</span>],
   <span class="tok-key">openTo</span>: <span class="tok-bool">true</span>,
 } <span class="tok-kw">as</span> <span class="tok-type">const</span>;</pre>
         </aside>
@@ -143,17 +142,17 @@
         <h2 class="section__title" data-i18n="contact.title">hablemos</h2>
       </header>
       <p class="contact__lead" data-i18n="contact.lead">
-        Abierto a roles remotos, colaboraciones selectas y proyectos con ambición de diseño.
+        Abierto a colaboraciones selectas y proyectos con ambición de diseño.
+        Contacto preferente por GitHub.
       </p>
       <div class="contact__actions">
-        <button type="button" class="btn btn--primary" id="copy-email" data-email="hello@yourname.dev">
+        <button type="button" class="btn btn--primary" id="copy-email" hidden>
           <span class="btn__label" data-i18n="contact.copy">copiar email</span>
           <span class="btn__feedback" data-i18n="contact.copied" hidden>copiado ✓</span>
         </button>
-        <a class="btn btn--ghost" href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="btn btn--ghost" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn btn--primary" data-github-link href="https://github.com/monarch-one" target="_blank" rel="noopener noreferrer" data-i18n="contact.viaGithub">escribir en GitHub →</a>
       </div>
-      <p class="contact__hint mono dim">
+      <p class="contact__hint mono dim" id="contact-hint" hidden>
         <span data-i18n="contact.hintBefore">tip: pulsa</span>
         <kbd>e</kbd>
         <span data-i18n="contact.hintAfter">para copiar el email</span>

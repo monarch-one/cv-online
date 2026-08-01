@@ -4,70 +4,61 @@
  */
 
 const CONTENT = {
-  name: "Your Name",
-  email: "hello@yourname.dev",
-  location: { es: "Madrid, ES", en: "Madrid, ES" },
+  name: "Mauricio Appiolaza",
+  // vacío a propósito (privacidad): se oculta el botón de email hasta que pongas uno
+  email: "",
+  githubUrl: "https://github.com/monarch-one",
+  location: {
+    es: "Luján de Cuyo, Mendoza",
+    en: "Luján de Cuyo, Mendoza",
+  },
   meta: {
-    es: { loc: "Madrid, ES", tz: "UTC+1", stack: "TypeScript · Systems" },
-    en: { loc: "Madrid, ES", tz: "UTC+1", stack: "TypeScript · Systems" },
+    es: { loc: "Luján de Cuyo, Mendoza", tz: "UTC−3", stack: "TypeScript · Product" },
+    en: { loc: "Luján de Cuyo, Mendoza", tz: "UTC−3", stack: "TypeScript · Product" },
   },
   roles: {
     es: [
       "Software Engineer",
-      "Product-minded builder",
-      "Systems & interfaces",
+      "Product builder",
+      "UI & local-first tools",
     ],
     en: [
       "Software Engineer",
-      "Product-minded builder",
-      "Systems & interfaces",
+      "Product builder",
+      "UI & local-first tools",
     ],
   },
   experience: {
     es: [
       {
-        hash: "a3f2c1",
-        role: "Senior Software Engineer",
-        company: "Acme Labs",
-        period: "2023 — presente",
-        desc: "Lidero el diseño de sistemas de producto. Arquitectura frontend, DX y calidad de entrega end-to-end.",
+        hash: "a1p0la",
+        role: "Software & digital",
+        company: "Appiolaza",
+        period: "presente",
+        desc: "Producto web y presencia digital del taller. React, TypeScript, diseño e implementación end-to-end en producción.",
       },
       {
-        hash: "91b0e4",
-        role: "Software Engineer",
-        company: "Northwind",
-        period: "2020 — 2023",
-        desc: "Construí plataformas internas y APIs de alto tráfico. Reduje latencia p95 un 40% en flujos críticos.",
-      },
-      {
-        hash: "77c8d2",
-        role: "Frontend Engineer",
-        company: "Studio Pixel",
-        period: "2018 — 2020",
-        desc: "Interfaces de alta fidelidad para clientes de producto. Design systems y performance web.",
+        hash: "l0c4l1",
+        role: "Independent builder",
+        company: "personal tools",
+        period: "ongoing",
+        desc: "Suite local-first de extensiones y herramientas: notas, expansor de texto, portapapeles, reader. Privacidad por diseño, sin backend.",
       },
     ],
     en: [
       {
-        hash: "a3f2c1",
-        role: "Senior Software Engineer",
-        company: "Acme Labs",
-        period: "2023 — present",
-        desc: "Lead product systems design. Frontend architecture, DX, and end-to-end delivery quality.",
+        hash: "a1p0la",
+        role: "Software & digital",
+        company: "Appiolaza",
+        period: "present",
+        desc: "Web product and digital presence for the workshop. React, TypeScript, design-to-production end-to-end.",
       },
       {
-        hash: "91b0e4",
-        role: "Software Engineer",
-        company: "Northwind",
-        period: "2020 — 2023",
-        desc: "Built internal platforms and high-traffic APIs. Cut p95 latency by 40% on critical paths.",
-      },
-      {
-        hash: "77c8d2",
-        role: "Frontend Engineer",
-        company: "Studio Pixel",
-        period: "2018 — 2020",
-        desc: "High-fidelity interfaces for product clients. Design systems and web performance.",
+        hash: "l0c4l1",
+        role: "Independent builder",
+        company: "personal tools",
+        period: "ongoing",
+        desc: "Local-first extension suite: notes, text expander, clipboard, reader. Privacy by design, no backend.",
       },
     ],
   },
@@ -75,29 +66,29 @@ const CONTENT = {
     es: [
       {
         title: "languages",
-        items: ["TypeScript", "JavaScript", "Python", "SQL", "Go"],
+        items: ["TypeScript", "JavaScript", "HTML/CSS", "Shell"],
       },
       {
         title: "platform",
-        items: ["React", "Node.js", "Next.js", "PostgreSQL", "AWS"],
+        items: ["React", "Vite", "Browser extensions", "Static sites"],
       },
       {
         title: "craft",
-        items: ["System design", "UI engineering", "DX", "Performance", "Testing"],
+        items: ["UI engineering", "Local-first", "Privacy-minded", "Product design"],
       },
     ],
     en: [
       {
         title: "languages",
-        items: ["TypeScript", "JavaScript", "Python", "SQL", "Go"],
+        items: ["TypeScript", "JavaScript", "HTML/CSS", "Shell"],
       },
       {
         title: "platform",
-        items: ["React", "Node.js", "Next.js", "PostgreSQL", "AWS"],
+        items: ["React", "Vite", "Browser extensions", "Static sites"],
       },
       {
         title: "craft",
-        items: ["System design", "UI engineering", "DX", "Performance", "Testing"],
+        items: ["UI engineering", "Local-first", "Privacy-minded", "Product design"],
       },
     ],
   },
@@ -188,15 +179,15 @@ const I18N = {
     "nav.contact": "contact",
     "hero.eyebrow": "curriculum vitae · v1.0.0",
     "hero.lead":
-      "Diseño y construyo productos digitales con precisión de ingeniería. Interfaces claras, sistemas fiables, detalle obsesivo.",
+      "Construyo software con foco en producto: interfaces claras, herramientas locales y detalle de ejecución. Menos superficie pública, más craft.",
     "hero.cta": "iniciar conversación",
     "hero.ctaSecondary": "ver trabajo",
     "about.label": "about",
     "about.title": "quién soy",
     "about.p1":
-      "Ingeniero de software con foco en producto. Combino pensamiento de sistemas con criterio de diseño: cada interfaz, cada API, cada decisión de arquitectura debe sentirse inevitable.",
+      "Soy Mauricio. Diseño y desarrollo productos digitales desde Mendoza: sitios en producción, extensiones de navegador y herramientas local-first. Priorizo claridad, control del usuario y código que se sostiene solo.",
     "about.p2":
-      "Trabajo en la intersección entre código limpio y experiencia de usuario. Prefiero menos features, mejor ejecutadas. El minimalismo no es estética: es disciplina.",
+      "Prefiero menos features, bien hechas. El minimalismo no es pose: es disciplina. Trabajo en la intersección entre UI cuidadosa y software que no necesita cloud para ser útil.",
     "experience.label": "experience",
     "experience.title": "trayectoria",
     "skills.label": "skills",
@@ -206,11 +197,12 @@ const I18N = {
     "contact.label": "contact",
     "contact.title": "hablemos",
     "contact.lead":
-      "Abierto a roles remotos, colaboraciones selectas y proyectos con ambición de diseño.",
+      "Abierto a colaboraciones selectas y proyectos con ambición de diseño. Contacto preferente por GitHub.",
     "contact.copy": "copiar email",
     "contact.copied": "copiado ✓",
     "contact.hintBefore": "tip: pulsa",
     "contact.hintAfter": "para copiar el email",
+    "contact.viaGithub": "escribir en GitHub →",
     "footer.built": "built with care · no frameworks",
     "project.link": "ver proyecto →",
     "project.live": "ver sitio →",
@@ -228,15 +220,15 @@ const I18N = {
     "nav.contact": "contact",
     "hero.eyebrow": "curriculum vitae · v1.0.0",
     "hero.lead":
-      "I design and build digital products with engineering precision. Clear interfaces, reliable systems, obsessive detail.",
+      "I build product-minded software: clear interfaces, local-first tools, and careful execution. Less public surface, more craft.",
     "hero.cta": "start a conversation",
     "hero.ctaSecondary": "see work",
     "about.label": "about",
     "about.title": "who I am",
     "about.p1":
-      "Product-focused software engineer. I combine systems thinking with design judgment: every interface, every API, every architecture call should feel inevitable.",
+      "I'm Mauricio. I design and ship digital products from Mendoza: production sites, browser extensions, and local-first tools. I care about clarity, user control, and code that holds up.",
     "about.p2":
-      "I work at the intersection of clean code and user experience. Fewer features, better executed. Minimalism is not aesthetics — it is discipline.",
+      "Fewer features, better executed. Minimalism is discipline, not a pose. I work where careful UI meets software that does not need a cloud to be useful.",
     "experience.label": "experience",
     "experience.title": "trajectory",
     "skills.label": "skills",
@@ -246,11 +238,12 @@ const I18N = {
     "contact.label": "contact",
     "contact.title": "let's talk",
     "contact.lead":
-      "Open to remote roles, selective collaborations, and projects with design ambition.",
+      "Open to selective collaborations and projects with design ambition. Prefer contact via GitHub.",
     "contact.copy": "copy email",
     "contact.copied": "copied ✓",
     "contact.hintBefore": "tip: press",
     "contact.hintAfter": "to copy email",
+    "contact.viaGithub": "message on GitHub →",
     "footer.built": "built with care · no frameworks",
     "project.link": "view project →",
     "project.live": "view site →",
@@ -338,6 +331,16 @@ function applyI18n() {
     btn.classList.toggle("is-active", active);
     btn.setAttribute("aria-pressed", String(active));
   });
+
+  const meta = CONTENT.meta?.[lang] || CONTENT.meta?.es;
+  if (meta) {
+    const loc = document.getElementById("meta-loc");
+    const tz = document.getElementById("meta-tz");
+    const stack = document.getElementById("meta-stack");
+    if (loc) loc.textContent = meta.loc;
+    if (tz) tz.textContent = meta.tz;
+    if (stack) stack.textContent = meta.stack;
+  }
 
   renderExperience();
   renderSkills();
@@ -604,8 +607,18 @@ function initReveal() {
 
 function initCopyEmail() {
   const btn = document.getElementById("copy-email");
-  if (!btn) return;
+  const hint = document.getElementById("contact-hint");
+  const hasEmail = Boolean(CONTENT.email && CONTENT.email.includes("@"));
 
+  if (!hasEmail) {
+    if (btn) btn.hidden = true;
+    if (hint) hint.hidden = true;
+    return;
+  }
+
+  if (!btn) return;
+  btn.hidden = false;
+  if (hint) hint.hidden = false;
   btn.dataset.email = CONTENT.email;
 
   const copy = async () => {
@@ -651,8 +664,21 @@ function applyStaticContent() {
   document.title = `CV · ${CONTENT.name}`;
   document.getElementById("year").textContent = String(new Date().getFullYear());
 
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc) {
+    desc.setAttribute(
+      "content",
+      `Curriculum vitae — ${CONTENT.name}. Software, product, local-first tools.`
+    );
+  }
+
+  const gh = CONTENT.githubUrl || `https://github.com/${CONTENT.github?.user || ""}`;
+  document.querySelectorAll("[data-github-link]").forEach((el) => {
+    el.href = gh;
+  });
+
   const copyBtn = document.getElementById("copy-email");
-  if (copyBtn) copyBtn.dataset.email = CONTENT.email;
+  if (copyBtn && CONTENT.email) copyBtn.dataset.email = CONTENT.email;
 }
 
 async function main() {
