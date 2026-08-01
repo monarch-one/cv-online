@@ -5,7 +5,16 @@
 
 const CONTENT = {
   name: "Mauricio Appiolaza",
-  email: "mauricio_appiolaza@micorreo.uk",
+  /**
+   * Email ofuscado (no texto plano en el repo).
+   * Se decodifica solo en memoria al copiar — frena scrapers tontos.
+   * No evita un humano/bot que ejecute el JS a propósito.
+   */
+  emailParts: {
+    // btoa("mauricio_appiolaza") / btoa("micorreo.uk") — regenerar si cambiás mail
+    u: "bWF1cmljaW9fYXBwaW9sYXph",
+    d: "bWljb3JyZW8udWs=",
+  },
   githubUrl: "https://github.com/monarch-one",
   location: {
     es: "Luján de Cuyo, Mendoza",
@@ -588,12 +597,22 @@ function initReveal() {
   nodes.forEach((n) => io.observe(n));
 }
 
-/* ── Copy email ───────────────────────────── */
+/* ── Copy email (obfuscated) ──────────────── */
+
+function decodeEmail() {
+  const parts = CONTENT.emailParts;
+  if (!parts?.u || !parts?.d) return "";
+  try {
+    return `${atob(parts.u)}@${atob(parts.d)}`;
+  } catch {
+    return "";
+  }
+}
 
 function initCopyEmail() {
   const btn = document.getElementById("copy-email");
   const hint = document.getElementById("contact-hint");
-  const hasEmail = Boolean(CONTENT.email && CONTENT.email.includes("@"));
+  const hasEmail = Boolean(CONTENT.emailParts?.u && CONTENT.emailParts?.d);
 
   if (!hasEmail) {
     if (btn) btn.hidden = true;
@@ -604,10 +623,11 @@ function initCopyEmail() {
   if (!btn) return;
   btn.hidden = false;
   if (hint) hint.hidden = false;
-  btn.dataset.email = CONTENT.email;
+  // Never write the address into data-* or the DOM
 
   const copy = async () => {
-    const email = btn.dataset.email || CONTENT.email;
+    const email = decodeEmail();
+    if (!email) return;
     try {
       await navigator.clipboard.writeText(email);
     } catch {
@@ -662,8 +682,6 @@ function applyStaticContent() {
     el.href = gh;
   });
 
-  const copyBtn = document.getElementById("copy-email");
-  if (copyBtn && CONTENT.email) copyBtn.dataset.email = CONTENT.email;
 }
 
 async function main() {

@@ -30,7 +30,7 @@ Campos clave:
 | Campo | Qué es |
 |--------|--------|
 | `name` | Nombre |
-| `email` | Email (botón copiar + tecla `e`) |
+| `emailParts` | Email ofuscado en base64 (`u` + `d`). No texto plano. |
 | `roles` | Frases del typewriter |
 | `experience` | Trayectoria (ES + EN) |
 | `skills` | Grupos de skills |
