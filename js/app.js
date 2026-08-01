@@ -17,11 +17,13 @@ const CONTENT = {
   },
   githubUrl: "https://github.com/monarch-one",
   /**
-   * Username de Signal (sin @). Ej: "monarch.01"
-   * Link: https://signal.me/#u/<username> — no expone teléfono.
-   * Vacío = botón oculto.
+   * Username de Signal (sin @). Ej: "nombre.12"
+   * Al clic: copia el usuario y abre deep link.
+   * Opcional: signalLink = URL completa de Signal (Ajustes → QR o enlace, formato #eu/…)
+   * Vacío username = botón oculto.
    */
   signalUsername: "USER1.61803",
+  signalLink: "",
   location: {
     es: "Luján de Cuyo, Mendoza",
     en: "Luján de Cuyo, Mendoza",
@@ -204,6 +206,7 @@ const I18N = {
     "contact.hintAfter": "para copiar el email",
     "contact.viaGithub": "GitHub →",
     "contact.viaSignal": "Signal",
+    "contact.signalCopied": "usuario copiado ✓",
     "footer.built": "built with care · no frameworks",
     "project.link": "ver proyecto →",
     "project.live": "ver sitio →",
@@ -246,6 +249,7 @@ const I18N = {
     "contact.hintAfter": "to copy email",
     "contact.viaGithub": "GitHub →",
     "contact.viaSignal": "Signal",
+    "contact.signalCopied": "username copied ✓",
     "footer.built": "built with care · no frameworks",
     "project.link": "view project →",
     "project.live": "view site →",
@@ -323,8 +327,13 @@ function applyI18n() {
   document.documentElement.lang = lang;
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
-    // Signal label is set with username in applyStaticContent
+    // Signal label is set with username in applyStaticContent / initSignal
     if (el.classList.contains("signal-label") && CONTENT.signalUsername) return;
+    if (el.classList.contains("btn__feedback") && el.closest("#signal-btn")) {
+      const value = t("contact.signalCopied");
+      if (value) el.textContent = value;
+      return;
+    }
     const key = el.getAttribute("data-i18n");
     const value = t(key);
     if (value) el.textContent = value;
@@ -692,19 +701,71 @@ function applyStaticContent() {
     el.href = gh;
   });
 
-  const signal = document.getElementById("signal-link");
-  const raw = (CONTENT.signalUsername || "").trim().replace(/^@/, "");
-  if (signal) {
-    if (raw) {
-      signal.hidden = false;
-      signal.href = `https://signal.me/#u/${encodeURIComponent(raw)}`;
-      signal.dataset.username = raw;
-      const label = signal.querySelector(".signal-label");
-      if (label) label.textContent = `Signal · @${raw}`;
-    } else {
-      signal.hidden = true;
-    }
+}
+
+/* ── Signal contact ───────────────────────── */
+
+function signalUsername() {
+  return (CONTENT.signalUsername || "").trim().replace(/^@/, "");
+}
+
+function signalDeepLink(user) {
+  // Prefer official share URL from the app if provided (#eu/…)
+  const custom = (CONTENT.signalLink || "").trim();
+  if (custom.startsWith("https://signal.me/")) return custom;
+  // Plain username deep link (clients that still resolve #u/)
+  return `https://signal.me/#u/${user}`;
+}
+
+function initSignal() {
+  const btn = document.getElementById("signal-btn");
+  if (!btn) return;
+
+  const user = signalUsername();
+  if (!user) {
+    btn.hidden = true;
+    return;
   }
+
+  btn.hidden = false;
+  const label = btn.querySelector(".signal-label");
+  if (label) label.textContent = `Signal · @${user}`;
+
+  const copyText = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        ta.remove();
+        return ok;
+      } catch {
+        return false;
+      }
+    }
+  };
+
+  btn.addEventListener("click", async () => {
+    const name = signalUsername();
+    if (!name) return;
+
+    await copyText(name);
+
+    // Open Signal deep link in a new tab/app (not same-page #)
+    const url = signalDeepLink(name);
+    window.open(url, "_blank", "noopener,noreferrer");
+
+    btn.classList.add("is-copied");
+    window.setTimeout(() => btn.classList.remove("is-copied"), 1800);
+  });
 }
 
 async function main() {
@@ -713,6 +774,7 @@ async function main() {
   initLang();
   initReveal();
   initCopyEmail();
+  initSignal();
   // Render showcase with local data first, then enrich from public GitHub
   renderProjects();
   const boot = runBoot();

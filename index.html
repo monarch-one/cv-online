@@ -147,16 +147,10 @@
         Preferí Signal o mail.
       </p>
       <div class="contact__actions">
-        <a
-          class="btn btn--primary"
-          id="signal-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          hidden
-        >
+        <button type="button" class="btn btn--primary" id="signal-btn" hidden>
           <span class="signal-label" data-i18n="contact.viaSignal">Signal</span>
-        </a>
+          <span class="btn__feedback" data-i18n="contact.signalCopied" hidden>usuario copiado ✓</span>
+        </button>
         <button type="button" class="btn btn--ghost" id="copy-email" hidden>
           <span class="btn__label" data-i18n="contact.copy">copiar email</span>
           <span class="btn__feedback" data-i18n="contact.copied" hidden>copiado ✓</span>
