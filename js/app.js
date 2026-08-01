@@ -112,6 +112,16 @@ const CONTENT = {
     user: "monarch-one",
     showcase: [
       {
+        repo: "appiolaza-net",
+        title: "Appiolaza",
+        desc: {
+          es: "Sitio institucional del taller de chapa y pintura. React + TypeScript, diseño limpio, deploy en producción.",
+          en: "Institutional site for an auto body workshop. React + TypeScript, clean design, live in production.",
+        },
+        tags: ["React", "TypeScript", "Vite", "Client work"],
+        homepage: "https://appiolaza.com",
+      },
+      {
         repo: "kami",
         title: "Kami 紙",
         desc: {
