@@ -101,61 +101,82 @@ const CONTENT = {
       },
     ],
   },
-  projects: {
-    es: [
+  /**
+   * Showcase curado (solo estos aparecen).
+   * - desc local siempre (seguro, bilingüe, controlado)
+   * - si el repo se hace público, se enriquecen lang/stars/url de GitHub
+   * - si hay homepage, el CTA principal apunta ahí (ideal si sigue privado)
+   * Orden = orden en la grilla.
+   */
+  github: {
+    user: "monarch-one",
+    showcase: [
       {
-        title: "Signal Desk",
-        desc: "Dashboard de observabilidad con latencia sub-100ms y diseño de densidad editorial.",
-        tags: ["TypeScript", "WebSockets", "Design system"],
-        href: "#",
+        repo: "guardia-blog",
+        title: "Guardia Nocturna",
+        desc: {
+          es: "Blog editorial minimalista (Jekyll). Formación, discursos y archivo — tipografía sobria, voz propia.",
+          en: "Minimal editorial blog (Jekyll). Formation, speeches, and archive — sober type, own voice.",
+        },
+        tags: ["Jekyll", "HTML", "Cloudflare Pages"],
+        homepage: "https://guardia-nocturna.pages.dev/",
       },
       {
-        title: "Lattice API",
-        desc: "Gateway de servicios con contratos tipados, versionado semántico y docs generadas.",
-        tags: ["Go", "OpenAPI", "Postgres"],
-        href: "#",
+        repo: "kami",
+        title: "Kami 紙",
+        desc: {
+          es: "Nueva pestaña = página en blanco. Notas + fotos locales, sin cuentas ni tracking. Estética japonesa minimal.",
+          en: "New tab = blank page. Local notes + photos, no accounts, no tracking. Minimal Japanese aesthetic.",
+        },
+        tags: ["Extension", "JavaScript", "Privacy"],
+        homepage: null,
       },
       {
-        title: "Mono Kit",
-        desc: "Kit de componentes open source: tokens, accesibilidad y motion tokens unificados.",
-        tags: ["React", "CSS", "A11y"],
-        href: "#",
+        repo: "shunbun",
+        title: "Shunbun 瞬文",
+        desc: {
+          es: "Expansor de texto estilo fzf para Firefox/Chrome. Trigger configurable, variables dinámicas, UI CRT.",
+          en: "fzf-style text expander for Firefox/Chrome. Configurable trigger, dynamic variables, CRT UI.",
+        },
+        tags: ["Extension", "JavaScript", "UX"],
+        homepage: null,
       },
       {
-        title: "Trace CLI",
-        desc: "Herramienta de terminal para inspeccionar trazas distribuidas con UX de TUI.",
-        tags: ["Rust", "TUI", "Observability"],
-        href: "#",
-      },
-    ],
-    en: [
-      {
-        title: "Signal Desk",
-        desc: "Observability dashboard with sub-100ms latency and editorial-density design.",
-        tags: ["TypeScript", "WebSockets", "Design system"],
-        href: "#",
+        repo: "kagami",
+        title: "Kagami 鏡",
+        desc: {
+          es: "Historial local de portapapeles para Firefox/LibreWolf. Pins, búsqueda, sin nube. XPI firmado.",
+          en: "Local clipboard history for Firefox/LibreWolf. Pins, search, no cloud. Signed XPI.",
+        },
+        tags: ["Extension", "JavaScript", "Privacy"],
+        homepage: null,
       },
       {
-        title: "Lattice API",
-        desc: "Service gateway with typed contracts, semantic versioning, and generated docs.",
-        tags: ["Go", "OpenAPI", "Postgres"],
-        href: "#",
+        repo: "yomi",
+        title: "Yomi 読",
+        desc: {
+          es: "Reader mode CRT: limpia el artículo y exporta .md listo para Kami. Parte de la suite local-first.",
+          en: "CRT reader mode: cleans the article and exports .md for Kami. Part of the local-first suite.",
+        },
+        tags: ["Extension", "JavaScript", "Reader"],
+        homepage: null,
       },
       {
-        title: "Mono Kit",
-        desc: "Open-source component kit: tokens, accessibility, and unified motion primitives.",
-        tags: ["React", "CSS", "A11y"],
-        href: "#",
-      },
-      {
-        title: "Trace CLI",
-        desc: "Terminal tool for inspecting distributed traces with a TUI-first UX.",
-        tags: ["Rust", "TUI", "Observability"],
-        href: "#",
+        repo: "ancap-screensaver",
+        title: "ANCAP Screensaver",
+        desc: {
+          es: "Screensaver multiplataforma de citas. Instaladores nativos macOS / Linux / Windows.",
+          en: "Cross-platform quotes screensaver. Native installers for macOS / Linux / Windows.",
+        },
+        tags: ["HTML", "Desktop", "Open source"],
+        homepage: null,
       },
     ],
   },
 };
+
+/** Cache live GitHub data: repo name → api payload (or null if private/missing) */
+let githubLive = {};
 
 const I18N = {
   es: {
@@ -192,6 +213,11 @@ const I18N = {
     "contact.hintAfter": "para copiar el email",
     "footer.built": "built with care · no frameworks",
     "project.link": "ver proyecto →",
+    "project.live": "ver sitio →",
+    "project.github": "ver código →",
+    "project.badge.live": "live",
+    "project.badge.public": "public",
+    "project.badge.selected": "selected",
   },
   en: {
     status: "open to projects",
@@ -227,6 +253,11 @@ const I18N = {
     "contact.hintAfter": "to copy email",
     "footer.built": "built with care · no frameworks",
     "project.link": "view project →",
+    "project.live": "view site →",
+    "project.github": "view code →",
+    "project.badge.live": "live",
+    "project.badge.public": "public",
+    "project.badge.selected": "selected",
   },
 };
 
@@ -410,30 +441,127 @@ function renderSkills() {
     .join("");
 }
 
+function resolveShowcaseItem(entry) {
+  const live = githubLive[entry.repo];
+  const publicRepo = Boolean(live && !live.private);
+  const homepage = entry.homepage || live?.homepage || null;
+  const githubUrl = publicRepo ? live.html_url : null;
+  const langName = live?.language || null;
+  const stars = publicRepo ? live.stargazers_count ?? 0 : null;
+
+  const tags = [...entry.tags];
+  if (langName && !tags.some((x) => x.toLowerCase() === langName.toLowerCase())) {
+    tags.unshift(langName);
+  }
+
+  let badge = "selected";
+  if (homepage) badge = "live";
+  else if (publicRepo) badge = "public";
+
+  let href = homepage || githubUrl || null;
+  let linkKey = homepage ? "project.live" : publicRepo ? "project.github" : "project.link";
+
+  return {
+    title: entry.title,
+    desc: entry.desc[lang] || entry.desc.es || entry.desc.en || "",
+    tags,
+    href,
+    linkKey,
+    badge,
+    stars,
+    repo: entry.repo,
+    githubUrl,
+    homepage,
+  };
+}
+
 function renderProjects() {
   const root = document.getElementById("projects-grid");
   if (!root) return;
-  const items = CONTENT.projects[lang];
-  const linkLabel = t("project.link");
+
+  const items = (CONTENT.github?.showcase || []).map(resolveShowcaseItem);
 
   root.innerHTML = items
-    .map(
-      (item, i) => `
-    <article class="project-card">
+    .map((item, i) => {
+      const badgeLabel = t(`project.badge.${item.badge}`);
+      const linkLabel = t(item.linkKey);
+      const external = item.href && item.href.startsWith("http");
+      const starsHtml =
+        item.stars != null
+          ? `<span class="project-card__stars" title="stars">★ ${item.stars}</span>`
+          : "";
+      const linkHtml = item.href
+        ? `<a class="project-card__link" href="${escapeAttr(item.href)}" ${
+            external ? 'target="_blank" rel="noopener noreferrer"' : ""
+          }>${escapeHtml(linkLabel)}</a>`
+        : `<span class="project-card__link project-card__link--muted mono">${escapeHtml(
+            item.repo
+          )}</span>`;
+      const ghExtra =
+        item.githubUrl && item.homepage
+          ? `<a class="project-card__link project-card__link--secondary" href="${escapeAttr(
+              item.githubUrl
+            )}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("project.github"))}</a>`
+          : "";
+
+      return `
+    <article class="project-card" data-repo="${escapeAttr(item.repo)}">
       <div class="project-card__top">
         <h3 class="project-card__title">${escapeHtml(item.title)}</h3>
         <span class="project-card__index">0${i + 1}</span>
+      </div>
+      <div class="project-card__meta mono">
+        <span class="project-badge project-badge--${escapeAttr(item.badge)}">${escapeHtml(
+          badgeLabel
+        )}</span>
+        ${starsHtml}
       </div>
       <p class="project-card__desc">${escapeHtml(item.desc)}</p>
       <div class="project-card__tags">
         ${item.tags.map((tag) => `<span class="skill-tag">${escapeHtml(tag)}</span>`).join("")}
       </div>
-      <a class="project-card__link" href="${escapeAttr(item.href)}" ${
-        item.href.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""
-      }>${escapeHtml(linkLabel)}</a>
-    </article>`
-    )
+      <div class="project-card__actions">
+        ${linkHtml}
+        ${ghExtra}
+      </div>
+    </article>`;
+    })
     .join("");
+}
+
+async function loadGithubShowcase() {
+  const user = CONTENT.github?.user;
+  const list = CONTENT.github?.showcase || [];
+  if (!user || !list.length) {
+    renderProjects();
+    return;
+  }
+
+  // Fetch only allowlisted repos (avoids dumping the whole account)
+  await Promise.all(
+    list.map(async (entry) => {
+      try {
+        const res = await fetch(
+          `https://api.github.com/repos/${encodeURIComponent(user)}/${encodeURIComponent(
+            entry.repo
+          )}`,
+          {
+            headers: { Accept: "application/vnd.github+json" },
+          }
+        );
+        if (res.status === 404) {
+          githubLive[entry.repo] = null; // private or missing for anonymous
+          return;
+        }
+        if (!res.ok) return;
+        githubLive[entry.repo] = await res.json();
+      } catch {
+        /* offline / rate limit: keep local overrides */
+      }
+    })
+  );
+
+  renderProjects();
 }
 
 function escapeHtml(str) {
@@ -533,7 +661,10 @@ async function main() {
   initLang();
   initReveal();
   initCopyEmail();
-  await runBoot();
+  // Render showcase with local data first, then enrich from public GitHub
+  renderProjects();
+  const boot = runBoot();
+  await Promise.all([boot, loadGithubShowcase()]);
 }
 
 main();

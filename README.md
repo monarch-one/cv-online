@@ -34,7 +34,18 @@ Campos clave:
 | `roles` | Frases del typewriter |
 | `experience` | Trayectoria (ES + EN) |
 | `skills` | Grupos de skills |
-| `projects` | Proyectos seleccionados |
+| `github.showcase` | Allowlist de repos a mostrar (orden = grilla) |
+
+### Repos en el CV
+
+Solo aparecen los de `CONTENT.github.showcase` (no se listan todos).
+
+- Descripción y tags: locales (control editorial ES/EN)
+- Si el repo es **público**: se enriquece con language / stars / URL de GitHub
+- Si hay `homepage`: el CTA principal va al sitio (sirve aunque el repo siga privado)
+- Repos **privados** sin homepage: tarjeta visible, sin link a código (visitantes no pueden verlo)
+
+Criterio recomendado para abrir a público: producto usable, README limpio, sin secrets, sin zona gris legal.
 
 En `index.html` también puedes cambiar enlaces de GitHub / LinkedIn y la meta `loc/tz/stack` del hero.
 
