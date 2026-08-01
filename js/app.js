@@ -33,14 +33,14 @@ const CONTENT = {
       {
         hash: "a1p0la",
         role: "Software & digital",
-        company: "Appiolaza",
+        company: "monarch",
         period: "presente",
         desc: "Producto web y presencia digital del taller. React, TypeScript, diseño e implementación end-to-end en producción.",
       },
       {
         hash: "l0c4l1",
         role: "Independent builder",
-        company: "personal tools",
+        company: "monarch",
         period: "ongoing",
         desc: "Suite local-first de extensiones y herramientas: notas, expansor de texto, portapapeles, reader. Privacidad por diseño, sin backend.",
       },
@@ -49,14 +49,14 @@ const CONTENT = {
       {
         hash: "a1p0la",
         role: "Software & digital",
-        company: "Appiolaza",
+        company: "monarch",
         period: "present",
         desc: "Web product and digital presence for the workshop. React, TypeScript, design-to-production end-to-end.",
       },
       {
         hash: "l0c4l1",
         role: "Independent builder",
-        company: "personal tools",
+        company: "monarch",
         period: "ongoing",
         desc: "Local-first extension suite: notes, text expander, clipboard, reader. Privacy by design, no backend.",
       },
