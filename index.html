@@ -144,14 +144,24 @@
       </header>
       <p class="contact__lead" data-i18n="contact.lead">
         Abierto a colaboraciones selectas y proyectos con ambición de diseño.
-        Contacto preferente por GitHub.
+        Preferí Signal o mail.
       </p>
       <div class="contact__actions">
-        <button type="button" class="btn btn--primary" id="copy-email" hidden>
+        <a
+          class="btn btn--primary"
+          id="signal-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden
+        >
+          <span class="signal-label" data-i18n="contact.viaSignal">Signal</span>
+        </a>
+        <button type="button" class="btn btn--ghost" id="copy-email" hidden>
           <span class="btn__label" data-i18n="contact.copy">copiar email</span>
           <span class="btn__feedback" data-i18n="contact.copied" hidden>copiado ✓</span>
         </button>
-        <a class="btn btn--primary" data-github-link href="https://github.com/monarch-one" target="_blank" rel="noopener noreferrer" data-i18n="contact.viaGithub">escribir en GitHub →</a>
+        <a class="btn btn--ghost" data-github-link href="https://github.com/monarch-one" target="_blank" rel="noopener noreferrer" data-i18n="contact.viaGithub">GitHub →</a>
       </div>
       <p class="contact__hint mono dim" id="contact-hint" hidden>
         <span data-i18n="contact.hintBefore">tip: pulsa</span>

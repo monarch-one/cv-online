@@ -16,6 +16,12 @@ const CONTENT = {
     d: "bWljb3JyZW8udWs=",
   },
   githubUrl: "https://github.com/monarch-one",
+  /**
+   * Username de Signal (sin @). Ej: "monarch.01"
+   * Link: https://signal.me/#u/<username> — no expone teléfono.
+   * Vacío = botón oculto.
+   */
+  signalUsername: "",
   location: {
     es: "Luján de Cuyo, Mendoza",
     en: "Luján de Cuyo, Mendoza",
@@ -191,12 +197,13 @@ const I18N = {
     "contact.label": "contact",
     "contact.title": "hablemos",
     "contact.lead":
-      "Abierto a colaboraciones selectas y proyectos con ambición de diseño. Contacto preferente por GitHub.",
+      "Abierto a colaboraciones selectas y proyectos con ambición de diseño. Preferí Signal o mail.",
     "contact.copy": "copiar email",
     "contact.copied": "copiado ✓",
     "contact.hintBefore": "tip: pulsa",
     "contact.hintAfter": "para copiar el email",
-    "contact.viaGithub": "escribir en GitHub →",
+    "contact.viaGithub": "GitHub →",
+    "contact.viaSignal": "Signal",
     "footer.built": "built with care · no frameworks",
     "project.link": "ver proyecto →",
     "project.live": "ver sitio →",
@@ -232,12 +239,13 @@ const I18N = {
     "contact.label": "contact",
     "contact.title": "let's talk",
     "contact.lead":
-      "Open to selective collaborations and projects with design ambition. Prefer contact via GitHub.",
+      "Open to selective collaborations and projects with design ambition. Prefer Signal or email.",
     "contact.copy": "copy email",
     "contact.copied": "copied ✓",
     "contact.hintBefore": "tip: press",
     "contact.hintAfter": "to copy email",
-    "contact.viaGithub": "message on GitHub →",
+    "contact.viaGithub": "GitHub →",
+    "contact.viaSignal": "Signal",
     "footer.built": "built with care · no frameworks",
     "project.link": "view project →",
     "project.live": "view site →",
@@ -315,6 +323,8 @@ function applyI18n() {
   document.documentElement.lang = lang;
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
+    // Signal label is set with username in applyStaticContent
+    if (el.classList.contains("signal-label") && CONTENT.signalUsername) return;
     const key = el.getAttribute("data-i18n");
     const value = t(key);
     if (value) el.textContent = value;
@@ -682,6 +692,19 @@ function applyStaticContent() {
     el.href = gh;
   });
 
+  const signal = document.getElementById("signal-link");
+  const raw = (CONTENT.signalUsername || "").trim().replace(/^@/, "");
+  if (signal) {
+    if (raw) {
+      signal.hidden = false;
+      signal.href = `https://signal.me/#u/${encodeURIComponent(raw)}`;
+      signal.dataset.username = raw;
+      const label = signal.querySelector(".signal-label");
+      if (label) label.textContent = `Signal · @${raw}`;
+    } else {
+      signal.hidden = true;
+    }
+  }
 }
 
 async function main() {
