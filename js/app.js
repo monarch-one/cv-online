@@ -104,7 +104,7 @@ const CONTENT = {
     showcase: [
       {
         repo: "appiolaza-net",
-        title: "Appiolaza",
+        title: "monarch",
         desc: {
           es: "Sitio institucional del taller de chapa y pintura. React + TypeScript, diseño limpio, deploy en producción.",
           en: "Institutional site for an auto body workshop. React + TypeScript, clean design, live in production.",
