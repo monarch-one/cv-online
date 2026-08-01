@@ -21,7 +21,7 @@ const CONTENT = {
    * Link: https://signal.me/#u/<username> — no expone teléfono.
    * Vacío = botón oculto.
    */
-  signalUsername: "",
+  signalUsername: "USER1.61803",
   location: {
     es: "Luján de Cuyo, Mendoza",
     en: "Luján de Cuyo, Mendoza",
