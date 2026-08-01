@@ -13,52 +13,38 @@ const CONTENT = {
     en: "Luján de Cuyo, Mendoza",
   },
   meta: {
-    es: { loc: "Luján de Cuyo, Mendoza", tz: "UTC−3", stack: "TypeScript · Product" },
-    en: { loc: "Luján de Cuyo, Mendoza", tz: "UTC−3", stack: "TypeScript · Product" },
+    es: { loc: "Luján de Cuyo, Mendoza", tz: "UTC−3", stack: "monarch · software" },
+    en: { loc: "Luján de Cuyo, Mendoza", tz: "UTC−3", stack: "monarch · software" },
   },
   roles: {
     es: [
+      "Founder · monarch",
       "Software Engineer",
       "Product builder",
-      "UI & local-first tools",
     ],
     en: [
+      "Founder · monarch",
       "Software Engineer",
       "Product builder",
-      "UI & local-first tools",
     ],
   },
   experience: {
     es: [
       {
-        hash: "a1p0la",
-        role: "Software & digital",
+        hash: "m0n4rch",
+        role: "Founder & engineer",
         company: "monarch",
         period: "presente",
-        desc: "Producto web y presencia digital del taller. React, TypeScript, diseño e implementación end-to-end en producción.",
-      },
-      {
-        hash: "l0c4l1",
-        role: "Independent builder",
-        company: "monarch",
-        period: "ongoing",
-        desc: "Suite local-first de extensiones y herramientas: notas, expansor de texto, portapapeles, reader. Privacidad por diseño, sin backend.",
+        desc: "Mi estudio personal de desarrollo de software: producto web, interfaces y herramientas local-first. Diseño, implementación y deploy end-to-end — clientes y proyectos propios.",
       },
     ],
     en: [
       {
-        hash: "a1p0la",
-        role: "Software & digital",
+        hash: "m0n4rch",
+        role: "Founder & engineer",
         company: "monarch",
         period: "present",
-        desc: "Web product and digital presence for the workshop. React, TypeScript, design-to-production end-to-end.",
-      },
-      {
-        hash: "l0c4l1",
-        role: "Independent builder",
-        company: "monarch",
-        period: "ongoing",
-        desc: "Local-first extension suite: notes, text expander, clipboard, reader. Privacy by design, no backend.",
+        desc: "My personal software studio: web products, interfaces, and local-first tools. Design, implementation, and deploy end-to-end — clients and own projects.",
       },
     ],
   },
@@ -104,12 +90,12 @@ const CONTENT = {
     showcase: [
       {
         repo: "appiolaza-net",
-        title: "monarch",
+        title: "appiolaza.com",
         desc: {
-          es: "Sitio institucional del taller de chapa y pintura. React + TypeScript, diseño limpio, deploy en producción.",
-          en: "Institutional site for an auto body workshop. React + TypeScript, clean design, live in production.",
+          es: "Encargo de monarch: sitio institucional en producción (React + TypeScript). Diseño limpio, stack moderno, deploy en vivo.",
+          en: "monarch client work: institutional site in production (React + TypeScript). Clean design, modern stack, live deploy.",
         },
-        tags: ["React", "TypeScript", "Vite", "Client work"],
+        tags: ["React", "TypeScript", "Vite", "Client · monarch"],
         homepage: "https://appiolaza.com",
       },
       {
@@ -185,7 +171,7 @@ const I18N = {
     "about.label": "about",
     "about.title": "quién soy",
     "about.p1":
-      "Soy Mauricio. Diseño y desarrollo productos digitales desde Mendoza: sitios en producción, extensiones de navegador y herramientas local-first. Priorizo claridad, control del usuario y código que se sostiene solo.",
+      "Soy Mauricio. Desde monarch — mi estudio personal de desarrollo — diseño y construyo producto web, interfaces y herramientas local-first. Claridad, control del usuario y código que se sostiene solo.",
     "about.p2":
       "Prefiero menos features, bien hechas. El minimalismo no es pose: es disciplina. Trabajo en la intersección entre UI cuidadosa y software que no necesita cloud para ser útil.",
     "experience.label": "experience",
@@ -226,7 +212,7 @@ const I18N = {
     "about.label": "about",
     "about.title": "who I am",
     "about.p1":
-      "I'm Mauricio. I design and ship digital products from Mendoza: production sites, browser extensions, and local-first tools. I care about clarity, user control, and code that holds up.",
+      "I'm Mauricio. Through monarch — my personal software studio — I design and ship web products, interfaces, and local-first tools. Clarity, user control, and code that holds up.",
     "about.p2":
       "Fewer features, better executed. Minimalism is discipline, not a pose. I work where careful UI meets software that does not need a cloud to be useful.",
     "experience.label": "experience",
