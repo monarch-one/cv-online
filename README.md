@@ -7,6 +7,14 @@ Curriculum vitae estático: **dark terminal soft**, minimalista, bilingüe ES/EN
 - HTML / CSS / JS puro
 - Sin frameworks, sin build
 
+## URL pública (gratis, corta)
+
+**https://monarch-one.github.io/**
+
+(sin dominio de pago; sin apellido en la URL)
+
+Legacy (mismo contenido por ahora): https://monarch-one.github.io/cv-online/
+
 ## Ver local
 
 ```bash
@@ -16,6 +24,13 @@ python3 -m http.server 5173
 ```
 
 O abre `index.html` en el navegador.
+
+## Publicar cambios
+
+```bash
+git push origin main   # repo cv-online
+git push pages main    # sitio corto monarh-one.github.io
+```
 
 ## Personalizar
 
