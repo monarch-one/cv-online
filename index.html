@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curriculum vitae — software engineer" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <title>CV · Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- Boot overlay -->
+  <div id="boot" class="boot" aria-hidden="true">
+    <pre id="boot-log" class="boot__log"></pre>
+  </div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar__left">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span class="status-text" data-i18n="status">disponible para proyectos</span>
+    </div>
+    <nav class="topbar__nav" aria-label="Primary">
+      <a href="#about" data-i18n="nav.about">about</a>
+      <a href="#experience" data-i18n="nav.experience">experience</a>
+      <a href="#skills" data-i18n="nav.skills">skills</a>
+      <a href="#projects" data-i18n="nav.projects">projects</a>
+      <a href="#contact" data-i18n="nav.contact">contact</a>
+    </nav>
+    <div class="topbar__right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="lang__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang__sep" aria-hidden="true">/</span>
+        <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <p class="eyebrow mono">
+        <span class="dim">//</span> <span data-i18n="hero.eyebrow">curriculum vitae · v1.0.0</span>
+      </p>
+      <h1 class="hero__name">
+        <span class="hero__name-text">Your Name</span><span class="cursor" aria-hidden="true"></span>
+      </h1>
+      <p class="hero__role mono">
+        <span class="accent">&gt;</span>
+        <span id="typewriter" class="typewriter" aria-live="polite"></span>
+        <span class="cursor cursor--inline" aria-hidden="true"></span>
+      </p>
+      <p class="hero__lead" data-i18n="hero.lead">
+        Diseño y construyo productos digitales con precisión de ingeniería.
+        Interfaces claras, sistemas fiables, detalle obsesivo.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#contact" data-i18n="hero.cta">iniciar conversación</a>
+        <a class="btn btn--ghost" href="#projects" data-i18n="hero.ctaSecondary">ver trabajo</a>
+      </div>
+      <div class="hero__meta mono">
+        <span><span class="dim">loc:</span> Madrid, ES</span>
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <span><span class="dim">tz:</span> UTC+1</span>
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <span><span class="dim">stack:</span> TypeScript · Systems</span>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" data-reveal>
+      <header class="section__head">
+        <p class="section__label mono"><span class="dim">/*</span> <span data-i18n="about.label">about</span> <span class="dim">*/</span></p>
+        <h2 class="section__title" data-i18n="about.title">quién soy</h2>
+      </header>
+      <div class="about">
+        <div class="about__text">
+          <p data-i18n="about.p1">
+            Ingeniero de software con foco en producto. Combino pensamiento de sistemas
+            con criterio de diseño: cada interfaz, cada API, cada decisión de arquitectura
+            debe sentirse inevitable.
+          </p>
+          <p data-i18n="about.p2">
+            Trabajo en la intersección entre código limpio y experiencia de usuario.
+            Prefiero menos features, mejor ejecutadas. El minimalismo no es estética:
+            es disciplina.
+          </p>
+        </div>
+        <aside class="code-card mono" aria-label="Profile snippet">
+          <div class="code-card__bar">
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
+            <span class="code-card__file">profile.ts</span>
+          </div>
+<pre class="code-card__body"><span class="tok-kw">const</span> <span class="tok-id">profile</span> <span class="tok-op">=</span> {
+  <span class="tok-key">role</span>: <span class="tok-str">"Software Engineer"</span>,
+  <span class="tok-key">focus</span>: [<span class="tok-str">"product"</span>, <span class="tok-str">"systems"</span>],
+  <span class="tok-key">values</span>: [<span class="tok-str">"clarity"</span>, <span class="tok-str">"craft"</span>],
+  <span class="tok-key">openTo</span>: <span class="tok-bool">true</span>,
+} <span class="tok-kw">as</span> <span class="tok-type">const</span>;</pre>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" data-reveal>
+      <header class="section__head">
+        <p class="section__label mono"><span class="dim">/*</span> <span data-i18n="experience.label">experience</span> <span class="dim">*/</span></p>
+        <h2 class="section__title" data-i18n="experience.title">trayectoria</h2>
+      </header>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" data-reveal>
+      <header class="section__head">
+        <p class="section__label mono"><span class="dim">/*</span> <span data-i18n="skills.label">skills</span> <span class="dim">*/</span></p>
+        <h2 class="section__title" data-i18n="skills.title">stack & craft</h2>
+      </header>
+      <div class="skills" id="skills-grid"></div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects" data-reveal>
+      <header class="section__head">
+        <p class="section__label mono"><span class="dim">/*</span> <span data-i18n="projects.label">projects</span> <span class="dim">*/</span></p>
+        <h2 class="section__title" data-i18n="projects.title">selección de trabajo</h2>
+      </header>
+      <div class="projects" id="projects-grid"></div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--contact" id="contact" data-reveal>
+      <header class="section__head">
+        <p class="section__label mono"><span class="dim">/*</span> <span data-i18n="contact.label">contact</span> <span class="dim">*/</span></p>
+        <h2 class="section__title" data-i18n="contact.title">hablemos</h2>
+      </header>
+      <p class="contact__lead" data-i18n="contact.lead">
+        Abierto a roles remotos, colaboraciones selectas y proyectos con ambición de diseño.
+      </p>
+      <div class="contact__actions">
+        <button type="button" class="btn btn--primary" id="copy-email" data-email="hello@yourname.dev">
+          <span class="btn__label" data-i18n="contact.copy">copiar email</span>
+          <span class="btn__feedback" data-i18n="contact.copied" hidden>copiado ✓</span>
+        </button>
+        <a class="btn btn--ghost" href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn--ghost" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <p class="contact__hint mono dim">
+        <span data-i18n="contact.hintBefore">tip: pulsa</span>
+        <kbd>e</kbd>
+        <span data-i18n="contact.hintAfter">para copiar el email</span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="mono">
+      <span class="dim"> cons </span>
+      <span data-i18n="footer.built">built with care · no frameworks</span>
+      <span class="dim"> · </span>
+      <span id="year"></span>
+    </p>
+  </footer>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
