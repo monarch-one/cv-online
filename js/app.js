@@ -112,16 +112,6 @@ const CONTENT = {
     user: "monarch-one",
     showcase: [
       {
-        repo: "guardia-blog",
-        title: "Guardia Nocturna",
-        desc: {
-          es: "Blog editorial minimalista (Jekyll). Formación, discursos y archivo — tipografía sobria, voz propia.",
-          en: "Minimal editorial blog (Jekyll). Formation, speeches, and archive — sober type, own voice.",
-        },
-        tags: ["Jekyll", "HTML", "Cloudflare Pages"],
-        homepage: "https://guardia-nocturna.pages.dev/",
-      },
-      {
         repo: "kami",
         title: "Kami 紙",
         desc: {
