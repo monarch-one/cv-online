@@ -36,12 +36,12 @@ const CONTENT = {
     es: [
       "Founder · monarch",
       "Software & design",
-      "Diseño industrial · UNCuyo",
+      "Diseñador gráfico industrial · UNCuyo",
     ],
     en: [
       "Founder · monarch",
       "Software & design",
-      "Industrial design · UNCuyo",
+      "Industrial graphic designer · UNCuyo",
     ],
   },
   experience: {
@@ -110,19 +110,19 @@ const CONTENT = {
     es: [
       {
         hash: "uncuyo",
-        role: "Diseño Industrial · orientación gráfica",
+        role: "Diseñador Gráfico Industrial",
         company: "Universidad Nacional de Cuyo",
         period: "2008",
-        desc: "Facultad de Artes y Diseño. Formación en diseño de producto e identidad gráfica.",
+        desc: "Facultad de Artes y Diseño. Título: Diseñador Gráfico Industrial.",
       },
     ],
     en: [
       {
         hash: "uncuyo",
-        role: "Industrial Design · graphic track",
+        role: "Industrial Graphic Designer",
         company: "Universidad Nacional de Cuyo",
         period: "2008",
-        desc: "School of Arts and Design. Product design and visual identity training.",
+        desc: "School of Arts and Design. Degree: Industrial Graphic Designer.",
       },
     ],
   },
@@ -259,13 +259,13 @@ const I18N = {
     "nav.contact": "contact",
     "hero.eyebrow": "curriculum vitae · v1.0.0",
     "hero.lead":
-      "Diseño industrial + software. Desde monarch construyo producto web, interfaces y herramientas local-first — con el oficio de quien viene del diseño gráfico y la producción real.",
+      "Diseñador gráfico industrial + software. Desde monarch construyo producto web, interfaces y herramientas local-first — con el oficio de quien viene del diseño y la producción real.",
     "hero.cta": "iniciar conversación",
     "hero.ctaSecondary": "ver trabajo",
     "about.label": "about",
     "about.title": "quién soy",
     "about.p1":
-      "Soy Mauricio. Diseñador industrial (UNCuyo, 2008) y builder de software. Desde monarch — mi estudio personal — diseño y desarrollo producto web, interfaces y herramientas local-first.",
+      "Soy Mauricio. Diseñador gráfico industrial (UNCuyo, 2008) y builder de software. Desde monarch — mi estudio personal — diseño y desarrollo producto web, interfaces y herramientas local-first.",
     "about.p2":
       "Empecé en imprenta y freelance gráfico (Mendoza), pasé por new media en Torino (Giò Minola) y hoy cierro el loop: craft visual + código. Menos features, bien hechas. Claridad y control del usuario.",
     "experience.label": "experience",
@@ -305,13 +305,13 @@ const I18N = {
     "nav.contact": "contact",
     "hero.eyebrow": "curriculum vitae · v1.0.0",
     "hero.lead":
-      "Industrial design + software. Through monarch I build web products, interfaces, and local-first tools — with the craft of someone who comes from graphic design and real production.",
+      "Industrial graphic designer + software. Through monarch I build web products, interfaces, and local-first tools — with the craft of someone who comes from design and real production.",
     "hero.cta": "start a conversation",
     "hero.ctaSecondary": "see work",
     "about.label": "about",
     "about.title": "who I am",
     "about.p1":
-      "I'm Mauricio. Industrial designer (UNCuyo, 2008) and software builder. Through monarch — my personal studio — I design and ship web products, interfaces, and local-first tools.",
+      "I'm Mauricio. Industrial graphic designer (UNCuyo, 2008) and software builder. Through monarch — my personal studio — I design and ship web products, interfaces, and local-first tools.",
     "about.p2":
       "I started in print shops and freelance design (Mendoza), worked new media in Turin (Giò Minola), and now close the loop: visual craft + code. Fewer features, better executed. Clarity and user control.",
     "experience.label": "experience",
